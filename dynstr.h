@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,6 +11,6 @@ typedef struct
 } DynStr;
 
 DynStr* DynStrCreate();
-DynStr* DynStrAssign(DynStr *DS, char *c);
+DynStr* DynStrAssign(DynStr *DS, char *str);
 void DynStrPrint(DynStr *DS);
 int DynStrFree(DynStr *DS);

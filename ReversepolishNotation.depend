@@ -26,3 +26,24 @@
 1384167601 c:\users\Александр\yandexdisk\Программы\reversepolishnotation\rpnstack.h
 	"DynStr.h"
 
+1384205997 source:c:\users\al\documents\github\reversepolish\dynstr.c
+	"DynStr.h"
+
+1384208512 c:\users\al\documents\github\reversepolish\dynstr.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1384207397 source:c:\users\al\documents\github\reversepolish\rpnstack.c
+	"RPNStack.h"
+
+1384205997 c:\users\al\documents\github\reversepolish\rpnstack.h
+	"DynStr.h"
+
+1384207976 source:c:\users\al\documents\github\reversepolish\rpn.c
+	"RPN.h"
+
+1384206770 c:\users\al\documents\github\reversepolish\rpn.h
+	"DynStr.h"
+	"RPNStack.h"
+

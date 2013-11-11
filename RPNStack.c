@@ -1,3 +1,4 @@
+#pragma once
 #include "RPNStack.h"
 
 RPNStack* RPNSCreate()
@@ -21,14 +22,15 @@ RPNStack* RPNSPushBack(DynStr *DS, RPNStack *RPNS)
     NewRPNStack->next = RPNS;
     return NewRPNStack;
 }
-DynStr* RPNStackPop(RPNStack* RPNS)
+DynStr* RPNSPop(RPNStack* RPNS)
 {
     DynStr* NewDynStr = DynStrCreate();
     NewDynStr = RPNS->DS;
-    RPNStack *RPNStmp = RPNSCreate();
-    RPNStmp = RPNS->next;
-    RPNSFreeEl(RPNS);
-    return RPNStmp;
+    RPNStack *RPNSOld = RPNSCreate();
+    RPNSOld = RPNS;
+    RPNS = RPNS->next;
+    RPNSFreeEl(RPNSOld);
+    return NewDynStr;
 }
 RPNStack* RPNSFreeEl(RPNStack* RPNS)
 {
