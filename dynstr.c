@@ -1,53 +1,47 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "DynStr.h"
 
-typedef struct
+DynStr* DynStrCreate()
 {
-    char *str;
-    size_t buf_size;
-    size_t reserve;
-}DynStr;
-
-DynStr* DynStrCreate(void)
-{
-    DynStr *DStr = (DynStr*)malloc(sizeof(DynStr));
-    DStr->buf_size = 0;
-    DStr->reserve = 0;
-    DStr->str = NULL;
-    return DStr;
+    DynStr *DS = (DynStr*)malloc(sizeof(DynStr));
+    if(!DS)
+    {
+        printf("memory allocation error in DynStrCreate\n");
+        exit(1);
+    }
+    DS->str = (char*)calloc(1,sizeof(char));
+    DS->len = 0;
+    DS->reserve = 0;
+    return DS;
 }
 
-DynStr* DynStrAssign(DynStr *DStr, const char *str)
+DynStr* DynStrAssign(DynStr *DS, char *str)
 {
-    size_t new_size = strlen(str)+1;
-    if(DStr->reserve <= new_size)
+    //c = strcat(c, "\0");
+    size_t len = strlen(str);
+    if(len+1>=DS->len)
     {
-        DStr->reserve = new_size*2;
-        printf("new_size = %d, reserve = %d\n", new_size, DStr->reserve);
-        DStr = (DynStr*)realloc(DStr, DStr->reserve);
-        if(!DStr)
+        DS = (DynStr*)realloc(DS, sizeof(DynStr)*len*3);
+        if(!DS)
         {
-            printf("Ошибка при распределении памяти\n");
+            printf("memory allocation error in DynStrAssign\n");
             exit(1);
         }
+        DS->reserve = len*3;
     }
-    //void *to = DStr->str;
-    printf("DynStrAssign\n");
-    //memcpy(DStr->str, str, new_size);
-    strcpy(DStr->str, str);
-    printf("AfterDynStrAssign\n");
-    DStr->buf_size = new_size;
-    return DStr;
+    DS->str = strcpy(DS->str, str);
+    DS->str = strcat(DS->str, "\0");
+    DS->len = len;
+    return DS;
 }
 
-void DynStrPrint(DynStr *str)
+void DynStrPrint(DynStr *DS)
 {
-    printf("%c\n",str->str);
+    printf("%s\n", DS->str);
 }
 
-void DeleteDynStr(DynStr* DStr)
+int DynStrFree(DynStr *DS)
 {
-    free(DStr->str);
-    free(DStr);
+    free(DS->str);
+    free(DS);
+    return 0;
 }

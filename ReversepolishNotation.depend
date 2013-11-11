@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1384149673 source:c:\users\Александр\yandexdisk\Программы\reversepolishnotation\main.c
+	"DynStr.c"
+
+1384165415 source:c:\users\Александр\yandexdisk\Программы\reversepolishnotation\dynstr.c
+	"DynStr.h"
+
+1384155237 c:\users\Александр\yandexdisk\Программы\reversepolishnotation\dynstr.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1384164537 source:c:\users\Александр\yandexdisk\Программы\reversepolishnotation\rpn.c
+	"RPN.h"
+
+1384164385 c:\users\Александр\yandexdisk\Программы\reversepolishnotation\dynstr.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1384169264 c:\users\Александр\yandexdisk\Программы\reversepolishnotation\rpn.h
+	"DynStr.h"
+
+1384163585 source:c:\users\Александр\yandexdisk\Программы\reversepolishnotation\rpnstack.c
+
+1384167601 c:\users\Александр\yandexdisk\Программы\reversepolishnotation\rpnstack.h
+	"DynStr.h"
+
