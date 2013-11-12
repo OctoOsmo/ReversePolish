@@ -12,5 +12,6 @@ typedef struct
 
 DynStr* DynStrCreate();
 DynStr* DynStrAssign(DynStr *DS, char *str);
+DynStr* DynStrPushBack(DynStr *DS, char ch);
 void DynStrPrint(DynStr *DS);
 int DynStrFree(DynStr *DS);

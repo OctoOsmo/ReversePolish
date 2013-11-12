@@ -1,4 +1,4 @@
-#pragma once
+//#pragma once
 #include "RPNStack.h"
 
 RPNStack* RPNSCreate()
@@ -32,6 +32,16 @@ DynStr* RPNSPop(RPNStack* RPNS)
     RPNSFreeEl(RPNSOld);
     return NewDynStr;
 }
+
+void RPNSPrint(RPNStack* RPNS)
+{
+    printf("%s", RPNS->DS->str);
+    if(RPNS->next)
+        printf("\n");
+    else
+        RPNSPrint(RPNS->next);
+}
+
 RPNStack* RPNSFreeEl(RPNStack* RPNS)
 {
     if(!RPNS)

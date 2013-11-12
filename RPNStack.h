@@ -11,6 +11,7 @@ struct rpn_s
 RPNStack* RPNSCreate();
 RPNStack* RPNSPushBack(DynStr *DS, RPNStack *RPNS);
 DynStr* RPNSPop(RPNStack* RPNS);
+void RPNSPrint(RPNStack* RPNS);
 RPNStack* RPNSFreeEl(RPNStack* RPNS);
 int RPNSFreeAll(RPNStack* RPNS);
 
