@@ -55,16 +55,29 @@
 	<stdlib.h>
 	<string.h>
 
-1384251507 source:c:\users\Александр\documents\github\reversepolish\rpnstack.c
-	"RPNStack.h"
+1384335283 source:c:\users\Александр\documents\github\reversepolish\rpnstack.c
 
 1384251697 c:\users\Александр\documents\github\reversepolish\rpnstack.h
 	"DynStr.h"
 
-1384248125 source:c:\users\Александр\documents\github\reversepolish\rpn.c
+1384343896 source:c:\users\Александр\documents\github\reversepolish\rpn.c
 	"RPN.h"
 
-1384235988 c:\users\Александр\documents\github\reversepolish\rpn.h
+1384343865 c:\users\Александр\documents\github\reversepolish\rpn.h
 	"DynStr.h"
-	"RPNStack.h"
+	"DRPNS.h"
+	"CharStack.h"
+
+1384343277 c:\users\Александр\documents\github\reversepolish\drpns.h
+	"DynStr.h"
+
+1384343341 source:c:\users\Александр\documents\github\reversepolish\drpns.c
+	"DRPNS.h"
+
+1384344841 source:c:\users\Александр\documents\github\reversepolish\charstack.c
+	<stdio.h>
+	<stdlib.h>
+	"CharStack.h"
+
+1384340942 c:\users\Александр\documents\github\reversepolish\charstack.h
 

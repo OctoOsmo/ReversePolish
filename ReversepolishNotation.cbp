@@ -31,18 +31,22 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CharStack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="CharStack.h" />
+		<Unit filename="DRPNS.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="DRPNS.h" />
 		<Unit filename="DynStr.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="DynStr.h" />
 		<Unit filename="RPN.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="RPN.h" />
-		<Unit filename="RPNStack.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="RPNStack.h" />
+		<Unit filename="dynstr.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -8,14 +8,14 @@ double ReadNumber(char *str)
     return 0;
 }
 
-int ReverseExpression(char *str, RPNStack *RPNS, RPNStack *RPNSExit)
+int ReverseExpression(char *str, CharStack* ChSt, DRPNStack *DRPNS)
 {
     size_t i;
     DynStr *DS = DynStrCreate();
     printf("%s\n", str);
-    if(!(RPNS||RPNSExit||str))
+    if(!(ChSt||DRPNS||str))
     {
-        printf("Reverse stack error\n");
+        printf("ReverseExpression input data error\n");
         exit(1);
     }
     for(i=0; i<=strlen(str); ++i)
@@ -32,21 +32,21 @@ int ReverseExpression(char *str, RPNStack *RPNS, RPNStack *RPNSExit)
         case '8':
         case '9':
         case '0':
-        case '.':
+        case '.'://Reading current number
             DS = DynStrPushBack(DS, str[i]);
             break;
         case '(':
-            break;
         case '*':
-            break;
         case '/':
-            break;
         case '+':
+        case '-'://Add function symbol to stack
+            ChSt = CharStackPushBack(ChSt, str[i]);
             break;
-        case '-':
+        case ')':
+            //while()
             break;
-        case '\0':
-            RPNSExit = RPNSPushBack(DS, RPNSExit);
+        case '\0'://Add number to exit string
+            DRPNS = DRPNSPushBack(DRPNS, DS);
             break;
         default:
             printf("error in expression\n");
@@ -54,20 +54,22 @@ int ReverseExpression(char *str, RPNStack *RPNS, RPNStack *RPNSExit)
         }
     }
     //DynStrPrint(DS);
-    RPNSPrint(RPNSExit);
+    DRPNSPrint(DRPNS);
+    //DynStrPrint(DSf);
+    CharStackPrint(ChSt);
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
     //printf("Hello world!\n");
-    DynStr *DS = DynStrCreate();
-    DynStr *DS1 = DynStrCreate();
+    //DynStr *DS = DynStrCreate();
+    //DynStr *DS1 = DynStrCreate();
     //DS = DynStrAssign(DS, "Hello");
     //printf("DS = ");
     //DynStrPrint(DS);
-    RPNStack *RPNS = RPNSCreate();
-    RPNStack *RPNSExit = RPNSCreate();
+    DRPNStack *DRPNS = DRPNSCreate();
+    //RPNStack *RPNSExit = RPNSCreate();
     //RPNS = RPNSPushBack(DS, RPNS);
     //DS1 = RPNSPop(RPNS);
     //printf("DS1 = ");
@@ -76,9 +78,10 @@ int main(int argc, char *argv[])
     //printf("DS1 = ");
     //DynStrPrint(DS1);
     //DynStrFree(DS);
+    CharStack *ChSt = CharStackCreate();
     if(argc > 1)
-        ReverseExpression(argv[1], RPNS, RPNSExit);
+        ReverseExpression(argv[1], ChSt, DRPNS);
     else
-        ReverseExpression("1+2*3", RPNS, RPNSExit);
+        ReverseExpression("1+2*3", ChSt, DRPNS);
     return 0;
 }
