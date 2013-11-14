@@ -11,7 +11,8 @@ double ReadNumber(char *str)
 int ReverseExpression(char *str, CharStack* ChSt, DRPNStack *DRPNS)
 {
     size_t i;
-    DynStr *DS = DynStrCreate();
+    char c;
+    DynStr *DS = NULL;
     printf("%s\n", str);
     if(!(ChSt||DRPNS||str))
     {
@@ -33,6 +34,8 @@ int ReverseExpression(char *str, CharStack* ChSt, DRPNStack *DRPNS)
         case '9':
         case '0':
         case '.'://Reading current number
+            if(!DS)
+                DS = DynStrCreate();
             DS = DynStrPushBack(DS, str[i]);
             break;
         case '(':
@@ -43,20 +46,40 @@ int ReverseExpression(char *str, CharStack* ChSt, DRPNStack *DRPNS)
             ChSt = CharStackPushBack(ChSt, str[i]);
             break;
         case ')':
-            //while()
+            while(c!='(')
+            {
+                c = CharStackPop(ChSt);
+                DS = DynStrPushBack(DS, c);
+                DRPNS = DRPNSPushBack(DRPNS, DS);
+                DS = DynStrAssign(DS, '\0');
+            }
+            CharStackPop(ChSt);//pop '('
+
             break;
         case '\0'://Add number to exit string
+            DS = DynStrPushBack(DS, '\0');
             DRPNS = DRPNSPushBack(DRPNS, DS);
+            DS = NULL;
+            //DS = DynStrAssign(DS, "\0");
             break;
         default:
             printf("error in expression\n");
             i = strlen(str)+1;
         }
     }
+    do
+    {
+        c = CharStackPop(ChSt);
+        DS = DynStrCreate();
+        DS = DynStrPushBack(DS, c);
+        DS = DynStrPushBack(DS, '\0');
+        DRPNS = DRPNSPushBack(DRPNS, DS);
+    }
+    while(c);
     //DynStrPrint(DS);
     DRPNSPrint(DRPNS);
     //DynStrPrint(DSf);
-    CharStackPrint(ChSt);
+    //CharStackPrint(ChSt);
     return 0;
 }
 

@@ -41,7 +41,7 @@ DynStr* DRPNSPop(DRPNStack* DRPNS)
 void DRPNSPrint(DRPNStack* DRPNS)
 {
     printf("%s", DRPNS->DS->str);
-    if(DRPNS->next)
+    if(!DRPNS->next)
         printf("\n");
     else
         DRPNSPrint(DRPNS->next);

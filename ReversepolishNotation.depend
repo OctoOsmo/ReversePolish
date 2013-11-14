@@ -60,7 +60,7 @@
 1384251697 c:\users\Александр\documents\github\reversepolish\rpnstack.h
 	"DynStr.h"
 
-1384343896 source:c:\users\Александр\documents\github\reversepolish\rpn.c
+1384418735 source:c:\users\Александр\documents\github\reversepolish\rpn.c
 	"RPN.h"
 
 1384343865 c:\users\Александр\documents\github\reversepolish\rpn.h
@@ -71,10 +71,10 @@
 1384343277 c:\users\Александр\documents\github\reversepolish\drpns.h
 	"DynStr.h"
 
-1384343341 source:c:\users\Александр\documents\github\reversepolish\drpns.c
+1384419100 source:c:\users\Александр\documents\github\reversepolish\drpns.c
 	"DRPNS.h"
 
-1384344841 source:c:\users\Александр\documents\github\reversepolish\charstack.c
+1384417806 source:c:\users\Александр\documents\github\reversepolish\charstack.c
 	<stdio.h>
 	<stdlib.h>
 	"CharStack.h"

@@ -24,9 +24,20 @@ CharStack* CharStackPushBack(CharStack* ChSt, char c)
 
 char CharStackPop(CharStack *ChSt)
 {
-    char ret = ChSt->c;
-    ChSt->c = ChSt->next->c;
-    ChSt->next = CharStackFreeEl(ChSt);
+    char ret;
+    if(ChSt->next)
+    {
+        ret = ChSt->c;
+        ChSt->c = ChSt->next->c;
+        ChSt->next = CharStackFreeEl(ChSt->next);
+    }
+    else
+    {
+        CharStackFree(ChSt);
+        ret = NULL;
+    }
+
+
     return ret;
 }
 
